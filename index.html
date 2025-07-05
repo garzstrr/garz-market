@@ -30,6 +30,7 @@
             padding: 1rem;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
         }
         
         .logo {
@@ -64,6 +65,24 @@
         
         nav ul li a:hover {
             background-color: var(--secondary);
+        }
+        
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-count {
+            background-color: var(--secondary);
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            margin-left: 5px;
         }
         
         main {
@@ -138,7 +157,18 @@
             background-color: #c0392b;
         }
         
-        .upload-section {
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .upload-section, .cart-section {
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
@@ -172,12 +202,127 @@
             padding: 1.5rem;
             margin-top: 2rem;
         }
+        
+        /* Modal Keranjang */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .close {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 1rem;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            background-color: #ddd;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        
+        .remove-item {
+            color: var(--secondary);
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        
+        .cart-summary {
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">GARZ STRR</div>
         <p>Toko Online Terpercaya</p>
+        <div class="cart-icon" id="cartIcon">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+        </div>
     </header>
     
     <nav>
@@ -194,50 +339,8 @@
             <h2>Selamat Datang di GARZ STRR</h2>
             <p>Temukan produk terbaik dengan harga terbaik hanya di toko kami.</p>
             
-            <div class="products">
-                <div class="product-card">
-                    <div class="https://img1.pixhost.to/images/6994/618830133_imgtmp.jpg">
-                        <img src="https://img1.pixhost.to/images/6994/618830133_imgtmp.jpg" alt="Produk 1">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Produk 1</div>
-                        <div class="product-price">Rp 35.000</div>
-                        <a href="#" class="btn">Beli Sekarang</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300" alt="Produk 2">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Produk 2</div>
-                        <div class="product-price">Rp 350.000</div>
-                        <a href="#" class="btn">Beli Sekarang</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300" alt="Produk 3">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Produk 3</div>
-                        <div class="product-price">Rp 450.000</div>
-                        <a href="#" class="btn">Beli Sekarang</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300" alt="Produk 4">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Produk 4</div>
-                        <div class="product-price">Rp 550.000</div>
-                        <a href="#" class="btn">Beli Sekarang</a>
-                    </div>
-                </div>
+            <div class="products" id="productList">
+                <!-- Produk akan dimuat melalui JavaScript -->
             </div>
         </section>
         
@@ -278,15 +381,305 @@
         <section id="contact">
             <h2>Hubungi Kami</h2>
             <p>Email: info@garzstrr.com</p>
-            <p>Telepon: 62895402128077</p>
+            <p>Telepon: (021) 1234-5678</p>
         </section>
     </main>
+    
+    <!-- Modal Keranjang Belanja -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keranjang Belanja</h2>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Item keranjang akan dimuat di sini -->
+                <p id="emptyCartMessage">Keranjang belanja Anda kosong.</p>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkos Kirim:</span>
+                    <span id="shipping">Rp 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">Rp 0</span>
+                </div>
+            </div>
+            
+            <button class="btn" id="checkoutBtn" style="width: 100%; margin-top: 1rem;">Proses Checkout</button>
+        </div>
+    </div>
     
     <footer>
         <p>&copy; 2023 GARZ STRR. Semua Hak Dilindungi.</p>
     </footer>
     
     <script>
+        // Data Produk
+        const products = [
+            {
+                id: 1,
+                name: "Produk 1",
+                price: 250000,
+                image: "https://via.placeholder.com/300",
+                description: "Deskripsi produk 1"
+            },
+            {
+                id: 2,
+                name: "Produk 2",
+                price: 350000,
+                image: "https://via.placeholder.com/300",
+                description: "Deskripsi produk 2"
+            },
+            {
+                id: 3,
+                name: "Produk 3",
+                price: 450000,
+                image: "https://via.placeholder.com/300",
+                description: "Deskripsi produk 3"
+            },
+            {
+                id: 4,
+                name: "Produk 4",
+                price: 550000,
+                image: "https://via.placeholder.com/300",
+                description: "Deskripsi produk 4"
+            }
+        ];
+        
+        // Keranjang Belanja
+        let cart = [];
+        
+        // DOM Elements
+        const productList = document.getElementById('productList');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeModal = document.getElementById('closeModal');
+        const cartItems = document.getElementById('cartItems');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const subtotal = document.getElementById('subtotal');
+        const shipping = document.getElementById('shipping');
+        const total = document.getElementById('total');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        
+        // Render Produk
+        function renderProducts() {
+            productList.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">Rp ${formatPrice(product.price)}</div>
+                        <button class="btn add-to-cart" data-id="${product.id}">Tambah ke Keranjang</button>
+                        <button class="btn btn-outline view-details" data-id="${product.id}" style="margin-top: 0.5rem;">Lihat Detail</button>
+                    </div>
+                `;
+                
+                productList.appendChild(productCard);
+            });
+            
+            // Tambahkan event listener untuk tombol
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+            
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', viewProductDetails);
+            });
+        }
+        
+        // Format harga
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        
+        // Tambah ke keranjang
+        function addToCart(e) {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            const product = products.find(p => p.id === productId);
+            
+            // Cek apakah produk sudah ada di keranjang
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            alert(`${product.name} telah ditambahkan ke keranjang!`);
+        }
+        
+        // Lihat detail produk
+        function viewProductDetails(e) {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            const product = products.find(p => p.id === productId);
+            
+            alert(`Detail Produk:\n\nNama: ${product.name}\nHarga: Rp ${formatPrice(product.price)}\nDeskripsi: ${product.description}`);
+        }
+        
+        // Update keranjang
+        function updateCart() {
+            // Update jumlah di icon keranjang
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Simpan ke localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        // Render keranjang
+        function renderCart() {
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartItems.innerHTML = '';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                
+                let itemsHTML = '';
+                let subtotalAmount = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotalAmount += itemTotal;
+                    
+                    itemsHTML += `
+                        <div class="cart-item">
+                            <div class="cart-item-info">
+                                <div class="cart-item-image">
+                                    <img src="${item.image}" alt="${item.name}">
+                                </div>
+                                <div>
+                                    <div>${item.name}</div>
+                                    <div>Rp ${formatPrice(item.price)}</div>
+                                </div>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                                <span class="remove-item" data-id="${item.id}">Hapus</span>
+                            </div>
+                            <div>Rp ${formatPrice(itemTotal)}</div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = itemsHTML;
+                
+                // Hitung ongkir (contoh: 10% dari subtotal, minimal 10.000)
+                const shippingCost = Math.max(10000, subtotalAmount * 0.1);
+                const totalAmount = subtotalAmount + shippingCost;
+                
+                subtotal.textContent = `Rp ${formatPrice(subtotalAmount)}`;
+                shipping.textContent = `Rp ${formatPrice(shippingCost)}`;
+                total.textContent = `Rp ${formatPrice(totalAmount)}`;
+                
+                // Tambahkan event listener untuk tombol di keranjang
+                document.querySelectorAll('.decrease').forEach(button => {
+                    button.addEventListener('click', decreaseQuantity);
+                });
+                
+                document.querySelectorAll('.increase').forEach(button => {
+                    button.addEventListener('click', increaseQuantity);
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', removeItem);
+                });
+            }
+        }
+        
+        // Kurangi jumlah item
+        function decreaseQuantity(e) {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            const item = cart.find(item => item.id === productId);
+            
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+            } else {
+                // Jika quantity 1, hapus dari keranjang
+                cart = cart.filter(item => item.id !== productId);
+            }
+            
+            updateCart();
+            renderCart();
+        }
+        
+        // Tambah jumlah item
+        function increaseQuantity(e) {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            const item = cart.find(item => item.id === productId);
+            
+            item.quantity += 1;
+            
+            updateCart();
+            renderCart();
+        }
+        
+        // Hapus item
+        function removeItem(e) {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            cart = cart.filter(item => item.id !== productId);
+            
+            updateCart();
+            renderCart();
+        }
+        
+        // Proses checkout
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Keranjang belanja Anda kosong!');
+                return;
+            }
+            
+            // Di sini Anda bisa menambahkan proses checkout sebenarnya
+            // Contoh: mengirim data ke server atau menampilkan form checkout
+            
+            alert('Checkout berhasil! Terima kasih telah berbelanja di GARZ STRR.');
+            cart = [];
+            updateCart();
+            renderCart();
+            cartModal.style.display = 'none';
+        }
+        
+        // Event Listeners
+        cartIcon.addEventListener('click', () => {
+            renderCart();
+            cartModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+        
+        checkoutBtn.addEventListener('click', checkout);
+        
+        // Form upload
         document.getElementById('uploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -316,6 +709,19 @@
             alert('Produk berhasil diunggah! (Ini hanya demo)');
             this.reset();
         });
+        
+        // Load cart from localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCart();
+            }
+        }
+        
+        // Initialize
+        loadCart();
+        renderProducts();
     </script>
 </body>
 </html>
