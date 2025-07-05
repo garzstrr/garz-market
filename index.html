@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GARZ STRR - Toko Online</title>
+    <title>GarzShop - Toko Online Terpercaya</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --success: #2ecc71;
+            --primary: #4a6fa5;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7f9fc;
+            --success: #4caf50;
+            --warning: #ff9800;
         }
         
         * {
@@ -23,13 +24,14 @@
         }
         
         body {
-            background-color: #f5f7fa;
-            color: var(--dark);
+            background-color: #f0f2f5;
+            color: #333;
             line-height: 1.6;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), #1a252f);
+            background: linear-gradient(135deg, var(--primary), #2a4a7a);
             color: white;
             padding: 1.2rem;
             text-align: center;
@@ -44,14 +46,14 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            margin-bottom: 0.5rem;
         }
         
         .logo {
             font-size: 2.8rem;
             font-weight: bold;
-            letter-spacing: 3px;
-            margin-bottom: 0.3rem;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffd166, #ff9a8b);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -63,8 +65,10 @@
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
+            color: rgba(255, 255, 255, 0.85);
         }
         
+        /* Navigation */
         nav {
             background-color: var(--dark);
             padding: 0.8rem;
@@ -75,10 +79,11 @@
             justify-content: center;
             list-style: none;
             flex-wrap: wrap;
+            gap: 10px;
         }
         
         nav ul li {
-            margin: 0 1.2rem;
+            margin: 0 0.8rem;
         }
         
         nav ul li a {
@@ -91,9 +96,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
         }
         
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a.active {
             background-color: var(--secondary);
             transform: translateY(-2px);
         }
@@ -123,8 +129,9 @@
             font-weight: bold;
         }
         
+        /* Main Content */
         main {
-            padding: 2.5rem;
+            padding: 2.5rem 1.5rem;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -154,9 +161,14 @@
             max-width: 800px;
             margin: 0 auto 2.5rem;
             font-size: 1.1rem;
-            color: #444;
+            color: #555;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         
+        /* Products Grid */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -247,7 +259,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--secondary);
+            background-color: var(--primary);
             color: white;
             padding: 0.7rem 1.5rem;
             border: none;
@@ -261,26 +273,35 @@
         }
         
         .btn:hover {
-            background-color: #c0392b;
+            background-color: #3a5a8a;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 10px rgba(74, 111, 165, 0.3);
         }
         
         .btn i {
             font-size: 1.1rem;
         }
         
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e55a5a;
+        }
+        
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
+            border: 2px solid var(--primary);
+            color: var(--primary);
         }
         
         .btn-outline:hover {
-            background-color: var(--secondary);
+            background-color: var(--primary);
             color: white;
         }
         
+        /* Upload Sections */
         .upload-section, .cart-section {
             background-color: white;
             padding: 2.5rem;
@@ -333,7 +354,7 @@
         .form-group select:focus {
             border-color: var(--accent);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
         }
         
         .file-upload {
@@ -347,7 +368,7 @@
         
         .file-upload:hover {
             border-color: var(--accent);
-            background-color: rgba(52, 152, 219, 0.05);
+            background-color: rgba(78, 205, 196, 0.05);
         }
         
         .file-upload i {
@@ -365,10 +386,10 @@
             color: #999;
         }
         
+        /* Footer */
         footer {
             background: linear-gradient(to right, var(--dark), #121a23);
             color: white;
-            text-align: center;
             padding: 3rem 2rem;
             margin-top: 4rem;
         }
@@ -380,6 +401,10 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2.5rem;
             text-align: left;
+        }
+        
+        .footer-section {
+            margin-bottom: 1.5rem;
         }
         
         .footer-section h3 {
@@ -456,9 +481,11 @@
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
         }
         
-        /* Modal Pembelian */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -524,58 +551,56 @@
             margin-bottom: 2rem;
         }
         
-        .processing-container {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .processing-icon {
-            font-size: 4rem;
-            color: var(--accent);
+        .form-group-modal {
             margin-bottom: 1.5rem;
-            animation: pulse 1.5s infinite;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .processing-text {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .processing-details {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.2rem;
-            margin-top: 1.5rem;
-            border-left: 4px solid var(--success);
-        }
-        
-        .processing-details p {
-            margin-bottom: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .processing-details span:first-child {
+        .form-group-modal label {
+            display: block;
+            margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--dark);
         }
         
-        .processing-details span:last-child {
-            color: #555;
+        .form-group-modal input, 
+        .form-group-modal textarea, 
+        .form-group-modal select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .payment-proof {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            margin: 1.5rem 0;
+        }
+        
+        .payment-proof i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .payment-proof p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-proof small {
+            color: #999;
         }
         
         .btn-container {
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: 1.5rem;
         }
         
         .btn-large {
@@ -583,6 +608,11 @@
             font-size: 1.1rem;
         }
         
+        .btn-full {
+            width: 100%;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -601,26 +631,198 @@
             .modal-content {
                 padding: 1.5rem;
             }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            .btn-large {
+                width: 100%;
+            }
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            border-bottom: 3px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Order Status */
+        .order-status {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .order-status:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #ddd;
+            z-index: 1;
+        }
+        
+        .status-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .status-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+        }
+        
+        .status-step.active .status-icon {
+            background: var(--success);
+        }
+        
+        .status-step.completed .status-icon {
+            background: var(--success);
+        }
+        
+        .status-step.active .status-title {
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .status-title {
+            font-size: 0.9rem;
+        }
+        
+        /* Order Details */
+        .order-details {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-item-image {
+            width: 80px;
+            height: 80px;
+            margin-right: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .order-item-image img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .order-item-info {
+            flex-grow: 1;
+        }
+        
+        .order-item-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .order-item-price {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .order-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-top: 0.5rem;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <div class="logo">GARZ STRR</div>
+            <div class="logo">GarzShop</div>
         </div>
         <p class="tagline">Toko Online Terpercaya dengan Beragam Produk Berkualitas</p>
         <div class="cart-icon" id="cartIcon">
             <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cartCount">0</span>
+            <span class="cart-count" id="cartCount">3</span>
         </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#home"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a></li>
             <li><a href="#products"><i class="fas fa-box"></i> Produk</a></li>
-            <li><a href="#upload"><i class="fas fa-upload"></i> Unggah</a></li>
+            <li><a href="#upload"><i class="fas fa-upload"></i> Jual Barang</a></li>
+            <li><a href="#orders"><i class="fas fa-clipboard-list"></i> Pesanan</a></li>
             <li><a href="#contact"><i class="fas fa-phone-alt"></i> Kontak</a></li>
         </ul>
     </nav>
@@ -628,23 +830,84 @@
     <main>
         <section id="home">
             <h2 class="section-title">Produk Terbaru</h2>
-            <p class="intro">Temukan produk-produk terbaik dengan kualitas premium hanya di GARZ STRR. Setiap pembelian mendapatkan garansi resmi dan dukungan pelanggan 24/7.</p>
+            <p class="intro">Temukan produk-produk terbaik dengan kualitas premium hanya di GarzShop. Setiap pembelian mendapatkan garansi resmi dan dukungan pelanggan 24/7.</p>
             
-            <div class="products" id="productList">
-                <!-- Produk akan dimuat melalui JavaScript -->
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-badge">TERLARIS</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Smart Watch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Watch Series 5</h3>
+                        <p class="product-description">Jam tangan pintar dengan fitur kesehatan, notifikasi, dan desain premium.</p>
+                        <div class="product-price">Rp 3.200.000</div>
+                        <button class="btn btn-secondary buy-btn"><i class="fas fa-shopping-cart"></i> Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">BARU</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Headphone">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Headphone Wireless Premium</h3>
+                        <p class="product-description">Headphone nirkabel dengan kualitas suara tinggi dan desain ergonomis.</p>
+                        <div class="product-price">Rp 1.250.000</div>
+                        <button class="btn btn-secondary buy-btn"><i class="fas fa-shopping-cart"></i> Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sepatu">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Sepatu Lari Sport</h3>
+                        <p class="product-description">Sepatu lari dengan teknologi bantalan terbaru untuk kenyamanan maksimal.</p>
+                        <div class="product-price">Rp 750.000</div>
+                        <button class="btn btn-secondary buy-btn"><i class="fas fa-shopping-cart"></i> Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">DISKON 20%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Kamera">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Kamera DSLR Pro</h3>
+                        <p class="product-description">Kamera DSLR profesional dengan sensor 24MP, cocok untuk fotografi tingkat lanjut.</p>
+                        <div class="product-price">Rp 4.500.000</div>
+                        <button class="btn btn-secondary buy-btn"><i class="fas fa-shopping-cart"></i> Beli Sekarang</button>
+                    </div>
+                </div>
             </div>
         </section>
         
         <section id="upload" class="upload-section">
             <div class="section-header">
-                <h2><i class="fas fa-cloud-upload-alt"></i> Unggah Produk Baru</h2>
-                <p>Tambahkan produk baru Anda ke toko online GARZ STRR. Pastikan semua informasi diisi dengan benar.</p>
+                <h2><i class="fas fa-cloud-upload-alt"></i> Jual Barang di GarzShop</h2>
+                <p>Tambahkan produk baru Anda ke toko online GarzShop. Pastikan semua informasi diisi dengan benar.</p>
             </div>
             
             <form id="uploadForm">
                 <div class="form-group">
                     <label for="productName">Nama Produk</label>
                     <input type="text" id="productName" name="productName" placeholder="Masukkan nama produk" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productCategory">Kategori Produk</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="elektronik">Elektronik</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="olahraga">Olahraga</option>
+                        <option value="rumahtangga">Rumah Tangga</option>
+                        <option value="hobi">Hobi & Koleksi</option>
+                    </select>
                 </div>
                 
                 <div class="form-group">
@@ -677,49 +940,171 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-large"><i class="fas fa-upload"></i> Unggah Produk</button>
+                <button type="submit" class="btn btn-large btn-secondary"><i class="fas fa-upload"></i> Unggah Produk</button>
                 <div id="uploadStatus" style="margin-top: 1.5rem; text-align: center;"></div>
             </form>
+        </section>
+        
+        <section id="orders" class="upload-section">
+            <div class="section-header">
+                <h2><i class="fas fa-clipboard-list"></i> Pesanan Saya</h2>
+                <p>Kelola pesanan dan pantau status pengiriman produk Anda</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="all">Semua Pesanan</button>
+                <button class="tab-btn" data-tab="waiting">Menunggu Pembayaran</button>
+                <button class="tab-btn" data-tab="processing">Diproses</button>
+                <button class="tab-btn" data-tab="shipped">Dikirim</button>
+                <button class="tab-btn" data-tab="completed">Selesai</button>
+            </div>
+            
+            <div class="tab-content active" id="all-orders">
+                <div class="order-details">
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Smart Watch">
+                        </div>
+                        <div class="order-item-info">
+                            <div class="order-item-title">Smart Watch Series 5</div>
+                            <div class="order-item-price">Rp 3.200.000</div>
+                            <div>Jumlah: 1</div>
+                            <div>Status: <span style="color: var(--success); font-weight: bold;">Selesai</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Headphone">
+                        </div>
+                        <div class="order-item-info">
+                            <div class="order-item-title">Headphone Wireless Premium</div>
+                            <div class="order-item-price">Rp 1.250.000</div>
+                            <div>Jumlah: 2</div>
+                            <div>Status: <span style="color: var(--warning); font-weight: bold;">Diproses</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h3 style="margin-bottom: 1rem;">Status Pesanan Terakhir</h3>
+                    <div class="order-status">
+                        <div class="status-step completed">
+                            <div class="status-icon"><i class="fas fa-check"></i></div>
+                            <div class="status-title">Pesanan Dibuat</div>
+                        </div>
+                        <div class="status-step completed">
+                            <div class="status-icon"><i class="fas fa-check"></i></div>
+                            <div class="status-title">Pembayaran Diterima</div>
+                        </div>
+                        <div class="status-step active">
+                            <div class="status-icon"><i class="fas fa-cog"></i></div>
+                            <div class="status-title">Diproses</div>
+                        </div>
+                        <div class="status-step">
+                            <div class="status-icon"><i class="fas fa-truck"></i></div>
+                            <div class="status-title">Dikirim</div>
+                        </div>
+                        <div class="status-step">
+                            <div class="status-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="status-title">Selesai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <section id="contact">
             <h2 class="section-title">Hubungi Kami</h2>
             <div class="contact-info" style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <p><i class="fas fa-envelope"></i> Email: info@garzstrr.com</p>
+                <p><i class="fas fa-envelope"></i> Email: info@garzshop.com</p>
                 <p><i class="fas fa-phone"></i> Telepon: (021) 1234-5678</p>
-                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Toko Online No. 31, Purwokerto</p>
+                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Toko Online No. 123, Jakarta</p>
+                <p><i class="fas fa-clock"></i> Jam Operasional: Senin-Minggu, 08:00 - 22:00 WIB</p>
             </div>
         </section>
     </main>
     
-    <!-- Modal Pembelian -->
-    <div class="modal" id="purchaseModal">
+    <!-- Modal Pembayaran -->
+    <div class="modal" id="paymentModal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <div class="modal-header">
-                <h2>Pembelian Berhasil!</h2>
-                <p>Terima kasih telah berbelanja di GARZ STRR</p>
+                <h2>Pembayaran</h2>
+                <p>Lengkapi informasi pembayaran untuk menyelesaikan pesanan</p>
             </div>
             
             <div class="modal-body">
-                <div class="processing-container">
-                    <div class="processing-icon">
-                        <i class="fas fa-sync-alt fa-spin"></i>
-                    </div>
-                    <div class="processing-text">Pembelianmu sedang diproses</div>
-                    <p>Kami sedang memproses pesanan Anda dan akan mengirimkan detail pembelian ke email Anda.</p>
+                <div class="form-group-modal">
+                    <label for="fullName">Nama Lengkap</label>
+                    <input type="text" id="fullName" placeholder="Masukkan nama lengkap" required>
+                </div>
+                
+                <div class="form-group-modal">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Masukkan email" required>
+                </div>
+                
+                <div class="form-group-modal">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" placeholder="Masukkan nomor telepon" required>
+                </div>
+                
+                <div class="form-group-modal">
+                    <label for="address">Alamat Pengiriman</label>
+                    <textarea id="address" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+                </div>
+                
+                <div class="payment-proof">
+                    <i class="fas fa-camera"></i>
+                    <p>Upload Bukti Transfer</p>
+                    <small>Format yang didukung: JPG, PNG (Maks. 5MB)</small>
+                    <input type="file" id="paymentProof" accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="form-group-modal">
+                    <label for="bankAccount">Transfer ke Rekening:</label>
+                    <select id="bankAccount" required>
+                        <option value="">Pilih Bank</option>
+                        <option value="bca">BCA - 1234567890 (PT GarzShop)</option>
+                        <option value="bni">BNI - 0987654321 (PT GarzShop)</option>
+                        <option value="mandiri">Mandiri - 1122334455 (PT GarzShop)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-large btn-secondary btn-full" id="confirmPayment"><i class="fas fa-check-circle"></i> Konfirmasi Pembayaran</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Berhasil -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="color: var(--success);"><i class="fas fa-check-circle"></i> Pembayaran Berhasil!</h2>
+                <p>Terima kasih telah berbelanja di GarzShop</p>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align: center; padding: 1.5rem;">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--success); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Pesanan Anda Sedang Diproses</h3>
+                    <p>Kami telah menerima pembayaran Anda dan sedang memproses pesanan.</p>
+                    <p>Detail pesanan telah dikirim ke email Anda.</p>
                     
-                    <div class="processing-details">
-                        <p><span>No. Pesanan:</span> <span>GZ-2023-5876</span></p>
-                        <p><span>Total Pembayaran:</span> <span>Rp 1.250.000</span></p>
-                        <p><span>Estimasi Pengiriman:</span> <span>2-3 hari kerja</span></p>
+                    <div style="background: #f0f8ff; border-radius: 8px; padding: 1.2rem; margin-top: 1.5rem; text-align: left;">
+                        <p><strong>No. Pesanan:</strong> GS-2023-5876</p>
+                        <p><strong>Produk:</strong> Smart Watch Series 5</p>
+                        <p><strong>Total Pembayaran:</strong> Rp 3.200.000</p>
+                        <p><strong>Estimasi Pengiriman:</strong> 2-3 hari kerja</p>
                     </div>
                 </div>
             </div>
             
             <div class="btn-container">
-                <button class="btn btn-large" id="continueShopping"><i class="fas fa-shopping-cart"></i> Lanjut Belanja</button>
-                <button class="btn btn-large btn-outline" id="viewOrder"><i class="fas fa-clipboard-list"></i> Lihat Pesanan</button>
+                <button class="btn btn-large btn-full" id="continueShopping"><i class="fas fa-shopping-cart"></i> Lanjut Belanja</button>
             </div>
         </div>
     </div>
@@ -727,7 +1112,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Tentang GARZ STRR</h3>
+                <h3>Tentang GarzShop</h3>
                 <p>Toko online terpercaya menyediakan berbagai produk berkualitas dengan harga terbaik. Kami berkomitmen memberikan pengalaman belanja yang memuaskan.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -742,7 +1127,8 @@
                 <ul class="footer-links">
                     <li><a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a></li>
                     <li><a href="#products"><i class="fas fa-chevron-right"></i> Produk</a></li>
-                    <li><a href="#upload"><i class="fas fa-chevron-right"></i> Unggah Produk</a></li>
+                    <li><a href="#upload"><i class="fas fa-chevron-right"></i> Jual Barang</a></li>
+                    <li><a href="#orders"><i class="fas fa-chevron-right"></i> Pesanan Saya</a></li>
                     <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontak Kami</a></li>
                 </ul>
             </div>
@@ -751,162 +1137,81 @@
                 <h3>Informasi Kontak</h3>
                 <div class="contact-info">
                     <p><i class="fas fa-map-marker-alt"></i> Jl. Toko Online No. 123, Jakarta</p>
-                    <p><i class="fas fa-phone"></i> 62895402128077</p>
-                    <p><i class="fas fa-envelope"></i> info@garzstrr.com</p>
+                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@garzshop.com</p>
                     <p><i class="fas fa-clock"></i> Buka Setiap Hari: 08:00 - 22:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Metode Pembayaran</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem;">
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">BCA</div>
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">BNI</div>
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">Mandiri</div>
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">DANA</div>
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">OVO</div>
+                    <div style="background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">Gopay</div>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2023 GARZ STRR. Semua Hak Dilindungi.</p>
+            <p>&copy; 2023 GarzShop. Semua Hak Dilindungi. | Toko Online Terpercaya</p>
         </div>
     </footer>
     
     <script>
-        // Data Produk
-        const products = [
-            {
-                id: 1,
-                name: "Kamera DSLR Pro",
-                price: 4500000,
-                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Kamera DSLR profesional dengan sensor 24MP, cocok untuk fotografi tingkat lanjut.",
-                category: "Elektronik"
-            },
-            {
-                id: 2,
-                name: "Headphone Wireless Premium",
-                price: 1250000,
-                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Headphone nirkabel dengan kualitas suara tinggi dan desain ergonomis.",
-                category: "Elektronik"
-            },
-            {
-                id: 3,
-                name: "Sepatu Lari Sport",
-                price: 750000,
-                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Sepatu lari dengan teknologi bantalan terbaru untuk kenyamanan maksimal.",
-                category: "Olahraga"
-            },
-            {
-                id: 4,
-                name: "Smart Watch Series 5",
-                price: 3200000,
-                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Jam tangan pintar dengan fitur kesehatan, notifikasi, dan desain premium.",
-                category: "Elektronik"
-            }
-        ];
-        
-        // Keranjang Belanja
-        let cart = [];
-        
         // DOM Elements
-        const productList = document.getElementById('productList');
-        const cartIcon = document.getElementById('cartIcon');
-        const cartCount = document.getElementById('cartCount');
-        const purchaseModal = document.getElementById('purchaseModal');
+        const buyButtons = document.querySelectorAll('.buy-btn');
+        const paymentModal = document.getElementById('paymentModal');
         const closeModal = document.getElementById('closeModal');
+        const successModal = document.getElementById('successModal');
         const continueShopping = document.getElementById('continueShopping');
-        const viewOrder = document.getElementById('viewOrder');
+        const confirmPayment = document.getElementById('confirmPayment');
         const imageUploadArea = document.getElementById('imageUploadArea');
         const fileUploadArea = document.getElementById('fileUploadArea');
         const imageInput = document.getElementById('productImage');
         const fileInput = document.getElementById('productFile');
+        const paymentProofArea = document.querySelector('.payment-proof');
+        const paymentProofInput = document.getElementById('paymentProof');
         const uploadForm = document.getElementById('uploadForm');
         const uploadStatus = document.getElementById('uploadStatus');
-        
-        // Render Produk
-        function renderProducts() {
-            productList.innerHTML = '';
-            
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <div class="product-badge">BARU</div>
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-price">Rp ${formatPrice(product.price)}</div>
-                        <button class="btn add-to-cart" data-id="${product.id}">
-                            <i class="fas fa-shopping-cart"></i> Beli Sekarang
-                        </button>
-                    </div>
-                `;
-                
-                productList.appendChild(productCard);
-            });
-            
-            // Tambahkan event listener untuk tombol
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', purchaseProduct);
-            });
-        }
-        
-        // Format harga
-        function formatPrice(price) {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-        
-        // Proses pembelian produk
-        function purchaseProduct(e) {
-            const productId = parseInt(e.target.closest('.add-to-cart').getAttribute('data-id'));
-            const product = products.find(p => p.id === productId);
-            
-            // Tambahkan ke keranjang
-            cart.push({
-                ...product,
-                quantity: 1
-            });
-            
-            updateCart();
-            
-            // Tampilkan modal pembelian
-            purchaseModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Update keranjang
-        function updateCart() {
-            // Update jumlah di icon keranjang
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
-            // Simpan ke localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+        const tabButtons = document.querySelectorAll('.tab-btn');
         
         // Event Listeners
-        cartIcon.addEventListener('click', () => {
-            alert('Fitur keranjang belanja akan segera hadir!');
+        buyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                paymentModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
         });
         
         closeModal.addEventListener('click', () => {
-            purchaseModal.style.display = 'none';
+            paymentModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
         
         continueShopping.addEventListener('click', () => {
-            purchaseModal.style.display = 'none';
+            successModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        viewOrder.addEventListener('click', () => {
-            alert('Fitur detail pesanan akan segera hadir!');
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === purchaseModal) {
-                purchaseModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        confirmPayment.addEventListener('click', () => {
+            // Validasi form
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const bankAccount = document.getElementById('bankAccount').value;
+            
+            if (!fullName || !email || !phone || !address || !bankAccount || !paymentProofInput.files[0]) {
+                alert('Harap lengkapi semua informasi pembayaran!');
+                return;
             }
+            
+            paymentModal.style.display = 'none';
+            successModal.style.display = 'flex';
         });
         
         // File upload handlers
@@ -916,6 +1221,10 @@
         
         fileUploadArea.addEventListener('click', () => {
             fileInput.click();
+        });
+        
+        paymentProofArea.addEventListener('click', () => {
+            paymentProofInput.click();
         });
         
         imageInput.addEventListener('change', function() {
@@ -940,6 +1249,17 @@
             }
         });
         
+        paymentProofInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                paymentProofArea.innerHTML = `
+                    <i class="fas fa-check-circle" style="color:var(--success)"></i>
+                    <p>${this.files[0].name}</p>
+                    <small>${(this.files[0].size / 1024 / 1024).toFixed(2)} MB</small>
+                    <input type="file" id="paymentProof" accept="image/*" style="display: none;">
+                `;
+            }
+        });
+        
         // Form upload
         uploadForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -955,13 +1275,13 @@
                 </div>
             `;
             
-            // Simulasi upload (dalam implementasi nyata, ini akan mengirim ke server)
+            // Simulasi upload
             setTimeout(() => {
                 statusEl.innerHTML = `
                     <div style="color:var(--success); text-align:center;">
                         <i class="fas fa-check-circle" style="font-size:2rem;"></i>
                         <h3 style="margin:10px 0">Produk Berhasil Diunggah!</h3>
-                        <p>Produk "${productName}" sekarang tersedia di toko GARZ STRR.</p>
+                        <p>Produk "${productName}" sekarang tersedia di GarzShop.</p>
                     </div>
                 `;
                 
@@ -990,15 +1310,56 @@
             }, 2000);
         });
         
-        // Initialize
-        renderProducts();
+        // Tab functionality
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show corresponding tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(`${tabId}-orders`).classList.add('active');
+            });
+        });
         
-        // Load cart from localStorage
-        const savedCart = localStorage.getItem('cart');
-        if (savedCart) {
-            cart = JSON.parse(savedCart);
-            updateCart();
-        }
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === paymentModal) {
+                paymentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === successModal) {
+                successModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active link
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
